@@ -11,7 +11,7 @@ AF_DCMotor leftFront(4, MOTOR34_1KHZ);
 int rightIR = A5, leftIR = A4 ,
     trigPin = A1, echoPin = A0,
     lastDistSeen = 0, leftSeen, rightSeen;
-const int MAX_SPEED = 50, MAX_DIST = 15;
+const int MAX_SPEED = 45, MAX_DIST = 15;
 float steerMultiplier = 2.5;
 bool isAvoiding = false, isRotating = false, isReturning = false, onLine = true; //All booleans used for changing states.
 
@@ -76,10 +76,10 @@ void steerLeft() {
 
 //Steer left in a wide radius.
 void steerLeftWide() {
-  rightBack.setSpeed(MAX_SPEED + 10);
-  rightFront.setSpeed(MAX_SPEED + 10);
-  leftBack.setSpeed(MAX_SPEED + 10);
-  leftFront.setSpeed(MAX_SPEED + 10);
+  rightBack.setSpeed(MAX_SPEED + 2);
+  rightFront.setSpeed(MAX_SPEED + 2);
+  leftBack.setSpeed(MAX_SPEED + 2);
+  leftFront.setSpeed(MAX_SPEED + 2);
 
   leftBack.run(BACKWARD);
   leftFront.run(FORWARD);
@@ -165,7 +165,7 @@ void loop() {
       onLine = true;
       isReturning = false;
       steerRight();
-      delay(500);
+      delay(350);
     }
   }
 }
